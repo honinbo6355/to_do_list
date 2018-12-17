@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Clean Blog - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <!-- <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css"/>
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="/css/clean-blog.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/custom.css" />
+    <style>
+      /* User preferences in Nav Bar css */
+
+      .pull-right > .dropdown > .dropdown-toggle {
+          color: #ffffff;
+          text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+      }
+
+      li.dropdown.open>.dropdown-toggle {
+        color: #ffffff;
+      }
+
+      .pull-right>li>.dropdown-menu {
+        left: auto;
+        right: 0;
+      }
+
+      .pull-right>li>.dropdown-menu li {
+        line-height: 20px;
+      }
+
+      .dropdown-menu>li>a {
+        display: block;
+        padding: 3px 20px;
+        clear: both;
+        font-weight: normal;
+        line-height: 20px;
+        color: #333333;
+        white-space: nowrap;
+      }
+      .dropdown-menu>li:nth-child(1):hover {
+        background-color: lightsteelblue;
+      }
+
+      .dropdown-menu>li:nth-child(3):hover {
+        background-color: lightsteelblue;
+      }
+
+      .icon-cog {
+        background-position: -432px 0;
+      }
+
+      .icon-off {
+        background-position: -384px 0;
+      }
+
+      [class^="icon-"], [class*=" icon-"] {
+          display: inline-block;
+          width: 14px;
+          height: 14px;
+          line-height: 14px;
+          vertical-align: text-top;
+          background-image: url(/img/glyphicons-halflings.png);
+          /*background-position: 14px 14px;*/
+          background-repeat: no-repeat;
+          margin-top: 1px;
+      }
+
+      .dropdown-menu .divider {
+          box-sizing: content-box;
+          height: 1px;
+          margin: 9px 1px;
+          overflow: hidden;
+          background-color: #e5e5e5;
+          border-bottom: 1px solid #ffffff;
+      }
+    </style>
+  </head>
+
+  <body onload = "start()">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="/">TO-DO LIST</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+          <!--
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="post.html">Sample Post</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          -->
+          </ul>
+          <!-- <div class="pull-right"> -->
+          <ul class="nav pull-right">
+            <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">Welcome, <span id="displayName"><%=locals.displayName %></span> <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#"><i class="icon-cog"></i> Settings</a></li>
+                <li class="divider"></li>
+                <li><a href="#" onclick="todolistArrInsert()"><i class="icon-off"></i> Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+          <!-- </div> -->
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('/img/home-bg.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <h1>TO-DO LIST</h1>
+              <!-- <span class="subheading">A Blog Theme by Start Bootstrap</span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container" style="margin-bottom:100px">
+
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">  
+                <hr />                
+                <div id="calendar">
+
+                </div>
+            </div>
+        </div>
+        <div class="row" id="row2Id" style="margin-top:50px"> <!-- id값으로 내용 삽입을 위해 -->
+            <div class="col-lg-4 col-md-5 mx-auto">  
+                <hr />
+                <p id="enter">Write what to do and Press Enter!</p>
+
+                <p class="inputarea">
+                    <input type="text" id="inputText" placeholder="what to do" maxlength="8" />
+                    <ul id="todolist"></ul>
+                </p>
+            </div>
+            <div class="col-lg-4 col-md-5 mx-auto">  
+                <hr />
+                <p id="enter">Done</p>
+
+                <ul id="donelist"></ul>
+            </div>
+            <div style="text-align:right; margin:30px auto;">
+              <button id="saveBtn">저장</button>
+            </div>
+        </div>
+    </div>
+    <% if(locals.memID){ %>
+        <% for(var i=0; i<locals.resultLength; i++) { %>
+          <ul class="<%= locals.memID[i] %>" style="display:none">
+            <li><%= locals.memID[i] %></li>
+            <li><%= locals.radioID[i] %></li>
+            <li><%- locals.memoHTML[i] %></li>
+          </ul>
+      <% } %>
+    <% } %>
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; Your Website 2018</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="/js/clean-blog.min.js"></script>
+    <script type="text/javascript" src="/main.js"></script>
+    <script type="text/javascript" src="/calendar.js"></script>
+    
+  </body>
+</html>

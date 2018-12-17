@@ -1,0 +1,254 @@
+a {
+    color:#000;
+}
+
+a:hover {
+    color:#000;
+    text-decoration:none;
+}
+
+#todolistHeader {
+    margin-top: 2em;
+    margin-bottom: 1em;
+    text-align: center;
+    font-weight: 100;
+}
+
+.inputarea {
+    text-align: center;
+}
+
+#enter {
+    text-align: center;
+    font-size: 2em;
+    font-weight: 100;
+}
+
+#inputText {
+    width: 100%;
+    height: 2.5em;
+}
+
+#todolist, #donelist {
+    box-sizing: content-box;
+    list-style: none;
+    /*width: 100%;*/
+    width:300px;
+    height: 2.5em;
+}
+
+#todolist li {
+    border-left: 5px solid #25C797;
+    border-bottom: 1px dashed #ccc;
+    margin-bottom: 4px;
+    width: 100%;
+    height: 2.5em;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: all 0.5s;
+    transition-timing-function: ease;
+    color: #696969;
+    background-color: #F1F1F1;
+}
+
+#todolist li:hover {
+    transition: all 0.5s;
+    transition-timing-function: ease;
+    color: #696969;
+    background-color:#25C797;
+}
+
+#donelist li {
+    border-bottom: 1px dashed #ccc;
+    margin-bottom: 4px;
+    width: 100%;
+    height: 2.5em;
+    padding: 5px 10px;
+    cursor:pointer;
+    transition-timing-function:ease;
+    color:#E7007B;
+    background-color:#FFF;
+}
+
+#donelist li:hover {
+    transition:all 0.5s;
+    transition-timing-function:ease;
+    color:#E7007B;
+    background-color:#FEDBE4;
+}
+
+#todolist li span {
+    font-size: 1.3em;
+    font-weight:200;
+    padding-left: 10px;
+    vertical-align: middle;
+    /*position:absolute;*/
+}
+#donelist li span {
+    font-size: 1.3em;
+    font-weight: 200;
+    padding-left: 10px;
+    vertical-align: middle;
+    text-decoration: line-through;
+    color:#E7007B;
+    /*position:absolute;*/
+}
+
+.fa.fa-pencil {
+    float:right;
+    padding:5px;
+    visibility : hidden;
+    color:#fff;
+}
+
+.fa.fa-minus {
+    float:right;
+    padding:5px;
+    visibility : hidden;
+    color:#F2143F;
+}
+
+#saveBtn {
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: lightgray;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+#saveBtn:hover {
+    background-color: lightsteelblue;
+}
+
+#saveBtn:active {
+  background-color: lightsteelblue;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+/* calendar */
+
+#weekdays {
+    width:100%;
+}
+
+/*#weekdays td {
+    width:14.3%;
+    border:1px solid;
+}*/
+
+#calendarHeader {
+    padding: 50px 25px;
+    width: 100%;
+    background: slategrey;
+    text-align: center;
+}
+
+.dateHeader {
+    font-weight: bold;
+    font-size: 35px;
+    font-family: serif;
+}
+#calendarHeader ul {
+    margin: 0;
+    padding: 0;
+}
+
+input[type=radio] {
+    /*visibility: hidden;*/
+    display:none;
+}
+
+input[type=radio]:checked {
+    /*visibility: hidden;*/
+    background-color:lightsteelblue;
+}
+
+#weekdays {
+    margin: 0;
+    padding: 0;
+    background-color: #ddd;
+}
+
+#weekdays li {
+    display: inline-block;
+    width: 14.28%;
+    height: 45px;
+    line-height: 45px;
+    color: #666;
+    text-align: center;
+    border:1px solid;
+}
+
+.days {
+    /*padding: 10px 0;*/
+    padding:0;
+    background: #eee;
+    margin: 0;
+    border:1px solid;
+}
+
+.days li {
+    /*list-style-type: none;*/
+    display:inline-block;
+    width:14.28%;
+    /*padding-top:15px;*/
+    /*height:43px;*/
+    /*text-align:center;*/
+    /*margin-bottom:5px;*/
+    /*font-size:12px;
+    color: #777;*/
+    /*border:1px solid;*/    
+}
+
+.days .day {
+    list-style-type: none;
+    display:inline-block;
+    width:14.28%;
+    height:43px;
+    line-height:43px; /* 중요!! */
+    /*padding-top:15px;*/
+    text-align:center;
+    /*margin-bottom:5px;*/
+    font-size:12px;
+    color: #777;
+    border:1px solid;    
+}
+
+.days label {
+    width:100%;
+    margin:0;
+    height:100%;
+    font-size: 20px;
+}
+
+/*.days li:hover {
+    background: black;
+}*/
+
+.days label:hover {
+    background-color:lightsteelblue;
+}
+
+/*li {
+    overflow:scroll;
+}*/
+
+/*.active {
+   background-color:black; 
+}*/
+
+/*ul {
+    list-style:none;
+}
+
+li {
+    float:left;
+}*/
