@@ -7,7 +7,7 @@
   
 ### <사용한 기술>
 
-- 프론트엔드 : html, css, javascript, jquery, ajax, bootstrap  
+- 프론트엔드 : html, css, javascript, jquery, ajax, json, bootstrap  
 - 백엔드 : node.js, mysql, apache
 
 
